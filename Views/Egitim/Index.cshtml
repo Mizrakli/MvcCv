@@ -1,0 +1,37 @@
+﻿@using OrnekCV.Models.entity
+@model List<TblEgitimler>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Egitim Listesi</h2>
+<table class="table table-bordered">
+    <tr class="table-warning">
+        <th>ID</th>
+        <th>Baslık</th>
+        <th>Altbaşlık 1</th>
+        <th>Altbaşlık 2</th>
+        <th>GNO</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Baslik</td>
+            <td>@item.AltBaslik1</td>
+            <td>@item.AltBaslik2</td>
+            <td>@item.GNO</td>
+            <td>@item.Tarih</td>
+            <td><a href="/Egitim/EgitimSil/@item.ID" class="btn btn-warning">Sil</a></td>
+            <td><a href="/Egitim/EgitimBul/@item.ID" class="btn btn-danger">Düzenle</a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/Egitim/EgitimEkle" class="btn btn-info">Eğitimi Ekle</a>

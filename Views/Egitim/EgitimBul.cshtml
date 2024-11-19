@@ -1,0 +1,26 @@
+﻿@model OrnekCV.Models.entity.TblEgitimler
+@{
+    ViewBag.Title = "FindEducation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Egitim Düzenleme Sayfası</h2>
+<form method="post">
+    @Html.Label("Başlık")
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+
+    <br />
+    @Html.Label("Altbaşlık 1")
+    @Html.TextBoxFor(x => x.AltBaslik1, new { @class = "form-control" })
+ 
+    <br />
+    @Html.Label("Altbaşlık 2")
+    @Html.TextBoxFor(x => x.AltBaslik2, new { @class = "form-control" })
+    <br />
+    @Html.Label("GNO")
+    @Html.TextBoxFor(x => x.GNO, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Düzenlemeyi Kaydet</button>
+</form>

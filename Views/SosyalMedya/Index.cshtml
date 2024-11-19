@@ -1,0 +1,95 @@
+﻿@using OrnekCV.Models.entity
+@model List<TblSosyalMedya>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Sosyal Medya  Listem</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Sosyal Medya Ekle</button>
+                                <br />
+                                <br />
+                                <table class="table table-bordered">
+
+                                    <thead>
+                                        <tr class=" table-primary">
+                                            <th style="width: 10px">ID</th>
+                                            <th>Sosyal Medya</th>
+                                            <th>Link</th>
+                                            <th>Icon</th>
+                                            <th>Sil</th>
+                                            <th>Düzenle</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in Model)
+                                        {
+
+
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td>@item.Ad</td>
+                                                <td>@item.Link</td>
+                                                <td>@item.Icon</td>
+                                                <td>
+                                                    <a href="/SosyalMedya/SMSil/@item.ID" class="btn btn-outline-danger btn-sm">
+                                                        <i class="fas fa-trash"></i>Sil
+                                                    </a>
+                                                </td>
+                                                <td><a href="/SosyalMedya/SMBul/@item.ID" class="btn btn-outline-info btn-sm "><i class="fas fa-edit"></i>Düzenle</a></td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+        <div class="modal" id="Modal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Sosyal Medya Ekleme</h3>
+                    </div>
+                    <form action="/sosyalmedya/SMEkle" method="post">
+                        <div class="modal-body">
+                            <label>Sosyal Medya Adı</label>
+                            <input type="text" name="Ad" class="form-control" />
+                            <br />
+                            <label>Sosyal Medya Linki</label>
+                            <input type="text" name="link" class="form-control" />
+                            <br />
+                            <label>Icon</label>
+                            <input type="text" name="Icon" class="form-control" />
+                            <br />
+                            <button class="btn btn-info">Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

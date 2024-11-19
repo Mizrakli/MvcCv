@@ -1,0 +1,24 @@
+﻿@model OrnekCV.Models.entity.TblDeneyim
+@{
+    ViewBag.Title = "DeneyimGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h4>Deneyim Düzenleme Sayfası</h4>
+<br />
+<form method="post">
+    @Html.Label("ID")
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    @Html.Label("Başlık")
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+    @Html.Label("AltBaşlık")
+    @Html.TextBoxFor(x => x.AltBaslik, new { @class = "form-control" })
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+    @Html.Label("tarih")
+    @Html.TextAreaFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Düzenle</button>
+
+</form>
+

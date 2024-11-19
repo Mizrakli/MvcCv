@@ -1,0 +1,16 @@
+﻿@model OrnekCV.Models.entity.TblAdmin
+@{
+    ViewBag.Title = "AdminDuzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Admin Düzenleme Sayfası</h2>
+<form method="post">
+    @Html.Label("Kullanıcı Adı")
+    @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kullanıcı Adı")
+    @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })
+    <br />  
+</form>
+<button class="btn btn-info">Kaydet</button>

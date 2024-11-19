@@ -1,0 +1,35 @@
+﻿@using OrnekCV.Models.entity
+@model List<TblDeneyim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+
+<h2>Deneyimlerin Listesi</h2>
+<table class="table table-bordered">
+    <tr class="table-danger">
+        <th>ID</th>
+        <th>Başlık</th>
+        <th>Alt Başlık</th>
+        <th>Açıklama</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Baslik</td>
+            <td>@item.AltBaslik</td>
+            <td>@item.Aciklama</td>
+            <td>@item.Tarih</td>
+            <td><a href="/deneyim/DeneyimSil/@item.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/deneyim/DeneyimBul/@item.ID" class="btn btn-success">Düzenle</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Deneyim/DeneyimEkle" class="btn btn-primary">Deneyim Ekle</a>

@@ -1,0 +1,32 @@
+﻿@using OrnekCV.Models.entity
+@model List<TblAdmin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Admin Sayfası</h2>
+<table class="table table-bordered">
+    <tr style="background-color:aliceblue">
+        <td>ID</td>
+        <td>Kullanıcı Adı</td>
+        <td>Şifre</td>
+        <td>Sil</td>
+        <td>Düzenle</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.KullaniciAdi</td>
+            <td>@item.Sifre</td>
+            <td><a href="/admin/AdminSil/@item.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/admin/AdminBul/@item.ID" class="btn btn-warning">Duzenle</a></td>
+        </tr>
+    }
+</table>
+<a href="/admin/AdminEkle" class="btn btn-primary">Yeni Admin Ekle</a>
+
+
+
+

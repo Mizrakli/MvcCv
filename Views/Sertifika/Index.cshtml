@@ -1,0 +1,31 @@
+﻿@using OrnekCV.Models.entity
+@model List<TblSertifika>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Sertifika Listesi</h2>
+<table class="table table-bordered">
+    <tr class="table-success">
+        <th>ID</th>
+        <th>Acıklama</th>
+        <th>Tarih 1</th>
+
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Aciklama</td>
+            <td>@item.Tarih</td>
+            <td><a href="/Sertifika/SertifikaSil/@item.ID" class="btn btn-warning">Sil</a></td>
+            <td><a href="/Sertifika/SertifikaBul/@item.ID" class="btn btn-danger">Düzenle</a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/Sertifika/SertifikaEkle" class="btn btn-primary">Yeni Sertifika Ekle</a>

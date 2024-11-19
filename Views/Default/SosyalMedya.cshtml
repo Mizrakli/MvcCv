@@ -1,0 +1,9 @@
+﻿@using OrnekCV.Models.entity
+@model List<TblSosyalMedya>
+
+    <div class="social-icons">
+        @foreach (var item in Model)
+        {
+            <a id="sc" class="social-icon " href="@item.Link"><i class="@item.Icon "></i></a>
+        }
+    </div>
